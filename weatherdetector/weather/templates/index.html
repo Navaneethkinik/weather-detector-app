@@ -1,0 +1,93 @@
+<!-- sentiment_analysis/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Detector</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        div {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            margin: 10px 0;
+            color: #555;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" class="mx-auto my-5">
+        {% csrf_token %}
+        <h1 class="mb-4">Weather Detector</h1>
+        <input type="text" name="city" placeholder="Enter your city" class="form-control mb-3">
+        <button type="submit" class="btn btn-success">Get Weather</button>
+    </form>
+    <div class="mx-auto mt-4">
+        <h1>The weather in {{ city }} city is</h1>
+        <div>
+            <h3>Country Code: {{ country_code }}</h3>
+            <h3>Coordinate: {{ coordinate }}</h3>
+            <h3>Temperature: {{ temp }}</h3>
+            <h3>Pressure: {{ pressure }}</h3>
+            <h3>Humidity: {{ humidity }}</h3>
+        </div>
+    </div>
+</body>
+</html>
