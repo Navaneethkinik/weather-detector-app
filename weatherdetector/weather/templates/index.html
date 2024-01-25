@@ -81,12 +81,14 @@
     </form>
     <div class="mx-auto mt-4">
         <h1>The weather in {{ city }} city is</h1>
+        {% if data.country_code %}
         <div>
-            <h3>Country Code: {{ country_code }}</h3>
-            <h3>Coordinate: {{ coordinate }}</h3>
-            <h3>Temperature: {{ temp }}</h3>
-            <h3>Pressure: {{ pressure }}</h3>
-            <h3>Humidity: {{ humidity }}</h3>
+            <h3>Country Code: {{ data.country_codecountry_code }}</h3>
+            <h3>Coordinate: {{ data.coordinate }}</h3>
+            <h3>Temperature: {{ data.temp }}</h3>
+            <h3>Pressure: {{ data.pressure }}</h3>
+            <h3>Humidity: {{ data.humidity }}</h3>
+        {% endif %}
         </div>
     </div>
 </body>
